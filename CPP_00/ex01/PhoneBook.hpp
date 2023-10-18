@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:41:46 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/17 04:32:07 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/10/18 04:43:22 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 
 #include "Contact.hpp"
 #include <string>
-#include <cctype>
+#include <locale>
+#include <iomanip>
+#include <sstream>
 
 class PhoneBook
 {
     private:
         Contact contact[8];
+        int     count;
     public:
         void addContact();
         void searchContact();
