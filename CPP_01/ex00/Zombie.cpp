@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 17:41:46 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/18 18:08:11 by olahmami         ###   ########.fr       */
+/*   Created: 2023/10/19 03:52:43 by olahmami          #+#    #+#             */
+/*   Updated: 2023/10/19 04:41:35 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-#include "Contact.hpp"
-#include <string>
-#include <locale>
-#include <iomanip>
-#include <sstream>
-
-class PhoneBook
+void Zombie::announce( void )
 {
-    private:
-        Contact contact[8];
-        int     count;
-    public:
-        void addContact();
-        void searchContact();
-};
+    std::cout << this->name << " BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-int isName(std::string str);
-int allSpaces(std::string str);
-int isNumber(std::string str);
-#endif
+Zombie::~Zombie( void )
+{
+    std::cout << this->name << " is dead" << std::endl;
+}

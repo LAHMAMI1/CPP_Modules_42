@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/18 18:29:25 by olahmami          #+#    #+#             */
+/*   Updated: 2023/10/19 01:51:40 by olahmami         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
@@ -13,21 +25,18 @@ class Contact
         std::string DarkestSecret;
 
     public:
-        // Getter functions
-        std::string getFirstName();
-        std::string getLastName();
-        std::string getNickname();
-        std::string getPhoneNumber();
-        std::string getDarkestSecret();
+        std::string getFirstName() const;
+        std::string getLastName() const;
+        std::string getNickname() const;
+        std::string getPhoneNumber() const;
+        std::string getDarkestSecret() const;
 
-        // Setter functions
-        void setFirstName(std::string firstName);
-        void setLastName(std::string lastName);
-        void setNickname(std::string nickname);
-        void setPhoneNumber(std::string phoneNumber);
-        void setDarkestSecret(std::string darkestSecret);
+        void setFirstName(const std::string& firstName);
+        void setLastName(const std::string& lastName);
+        void setNickname(const std::string& nickname);
+        void setPhoneNumber(const std::string& phoneNumber);
+        void setDarkestSecret(const std::string& darkestSecret);
 };
-
 
 #endif
  

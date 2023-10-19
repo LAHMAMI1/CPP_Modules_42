@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 17:41:46 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/18 18:08:11 by olahmami         ###   ########.fr       */
+/*   Created: 2023/10/19 04:19:32 by olahmami          #+#    #+#             */
+/*   Updated: 2023/10/19 04:27:53 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-#include "Contact.hpp"
-#include <string>
-#include <locale>
-#include <iomanip>
-#include <sstream>
+void Zombie::set_name( std::string const& name ) { this->name = name; }
 
-class PhoneBook
+Zombie* newZombie( std::string name )
 {
-    private:
-        Contact contact[8];
-        int     count;
-    public:
-        void addContact();
-        void searchContact();
-};
+    Zombie *zombie = new Zombie();
+    zombie->set_name(name);
+    return (zombie);
+}
 
-int isName(std::string str);
-int allSpaces(std::string str);
-int isNumber(std::string str);
-#endif

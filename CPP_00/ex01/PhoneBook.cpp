@@ -6,41 +6,11 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 02:27:31 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/18 04:54:37 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/10/18 23:58:31 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
-int isName(std::string str)
-{
-    for (size_t i = 0; i < str.length(); i++)
-    {
-        if (!std::isprint(str[i]))
-            return 0;
-    }
-    return 1;
-}
-
-int allSpaces(std::string str)
-{
-    for (size_t i = 0; i < str.length(); i++)
-    {
-        if (!std::isspace(str[i]))
-            return 0;
-    }
-    return 1;
-}
-
-int isNumber(std::string str)
-{
-    for (size_t i = 0; i < str.length(); i++)
-    {
-        if (!std::isdigit(str[i]))
-            return 0;
-    }
-    return 1;
-}
 
 void PhoneBook::addContact()
 {
@@ -51,7 +21,7 @@ void PhoneBook::addContact()
     std::string PhoneNumber;
     std::string DarkestSecret;
 
-    std::cout << "[Contact Fields]" << std::endl;
+    std::cout << "[CONTACT FIELDS]" << std::endl;
     do
     {
         std::cout << "First Name: ";
@@ -104,12 +74,16 @@ void PhoneBook::searchContact()
     std::string index;
     if (!(count > 0 && count < 9))
     {
-        std::cout << "No contacts to show" << std::endl;
+        std::cout << "{NO CONTACT TO SHOW}" << std::endl;
         return ;
     }
     std::cout << "     Index|First Name| Last Name|  NickName" << std::endl;
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < 8; i++)
     {
+        if (contact[i].getFirstName().empty() || contact[i].getLastName().empty()
+            || contact[i].getNickname().empty() || contact[i].getPhoneNumber().empty()
+            || contact[i].getDarkestSecret().empty())
+            break;
         std::cout << std::setw(10) << i + 1 << "|";
         if (contact[i].getFirstName().length() > 10)
             std::cout << contact[i].getFirstName().substr(0, 9) << ".|";
@@ -120,28 +94,28 @@ void PhoneBook::searchContact()
         else
             std::cout << std::setw(10) << contact[i].getLastName() << "|";
         if (contact[i].getNickname().length() > 10)
-            std::cout << contact[i].getNickname().substr(0, 9) << ".|";
+            std::cout << contact[i].getNickname().substr(0, 9) << ".|" << std::endl;
         else
             std::cout << std::setw(10) << contact[i].getNickname() << "|" << std::endl;
     }
-    
+
     std::cout << "Enter the index of the contact: ";
     std::getline(std::cin, index);
     if (std::cin.eof())
         exit(1);
     if (index.length() > 1 || !std::isdigit(index[0]))
     {
-        std::cout << "Wrong index" << std::endl;
+        std::cout << "{WRONG INDEX}" << std::endl;
         return ;
     }
     int num;
     std::istringstream(index) >> num;
     if (num < 1 || num > count)
     {
-        std::cout << "Wrong index" << std::endl;
+        std::cout << "{WRONG INDEX}" << std::endl;
         return ;
     }
-    
+
     std::cout << "First Name: " << contact[num - 1].getFirstName() << std::endl;
     std::cout << "Last Name: " << contact[num - 1].getLastName() << std::endl;
     std::cout << "Nickname: " << contact[num - 1].getNickname() << std::endl;

@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/15 23:40:19 by olahmami          #+#    #+#              #
-#    Updated: 2023/10/18 18:33:37 by olahmami         ###   ########.fr        #
+#    Created: 2023/10/19 01:17:37 by olahmami          #+#    #+#              #
+#    Updated: 2023/10/19 01:23:36 by olahmami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
-NAME = phonebook
-SRCS = main.cpp Contact.cpp PhoneBook.cpp check.cpp
+NAME = zombie
+SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

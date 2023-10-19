@@ -6,12 +6,12 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 23:37:03 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/15 23:37:04 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/10/19 00:01:31 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstring>
+#include <string>
 
 int main(int argc, char **argv)
 {
@@ -21,9 +21,9 @@ int main(int argc, char **argv)
     {
         for (int i = 1; i < argc; i++)
         {
-            for (int j = 0; j < (int) strlen(argv[i]); j++)
+            std::string str = argv[i];
+            for (size_t j = 0; j < str.length(); j++)
                 std::cout << (char) toupper(argv[i][j]);
-            std::cout << " ";
         }
     }
     std::cout << std::endl;
