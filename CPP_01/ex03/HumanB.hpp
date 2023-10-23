@@ -1,15 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 04:19:32 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/23 01:02:33 by olahmami         ###   ########.fr       */
+/*   Created: 2023/10/23 02:50:39 by olahmami          #+#    #+#             */
+/*   Updated: 2023/10/23 03:52:00 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-Zombie* newZombie( std::string name ) { return (new Zombie(name)); }
+#include "Weapon.hpp"
+
+class HumanB
+{
+    private:
+        std::string name;
+        Weapon& weapon;
+    public:
+        void attack();
+};
+
+#endif

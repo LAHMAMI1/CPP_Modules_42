@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 01:25:51 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/19 04:38:04 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/10/23 00:49:43 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Zombie
         std::string name;
     public:
         void announce( void );
-        void set_name( std::string const& name );
+        Zombie( std::string const& name );
         ~Zombie( void );
 };
 
