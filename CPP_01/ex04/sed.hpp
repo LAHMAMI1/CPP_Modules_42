@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 02:50:44 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/23 21:08:33 by olahmami         ###   ########.fr       */
+/*   Created: 2023/10/24 02:03:25 by olahmami          #+#    #+#             */
+/*   Updated: 2023/10/24 02:07:33 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef SED_HPP
+# define SED_HPP
 
-Weapon::Weapon(const std::string& type) : type(type) {}
+#include <iostream>
+#include <fstream>
 
-const std::string& Weapon::getType() const { return type; }
+void sed( char const *argv[], std::ifstream &file);
 
-void Weapon::setType(const std::string& type) { this->type = type; }
+#endif

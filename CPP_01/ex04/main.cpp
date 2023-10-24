@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 02:50:37 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/23 21:02:37 by olahmami         ###   ########.fr       */
+/*   Created: 2023/10/23 21:50:20 by olahmami          #+#    #+#             */
+/*   Updated: 2023/10/24 02:12:57 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "sed.hpp"
 
-HumanB::HumanB(std::string name)
+int main(int argc, char const *argv[])
 {
-    this->name = name;
-    this->weapon = NULL;
-}
-
-void HumanB::setWeapon(Weapon& weapon) { this->weapon = &weapon; }
-
-void HumanB::attack()
-{
-    if (this->weapon == NULL)
+    if (argc == 4)
     {
-        std::cout << this->name << " has no weapon" << std::endl;
-        return ;
+        std::ifstream file(argv[1]);
+        if (file.is_open())
+            sed(argv, file);
+        else
+            std::cout << "Error: " << argv[1] << " file not opned" << std::endl;
     }
-    std::cout << this->name << " attacks with his " << this->weapon->getType() << std::endl;
+    else
+        std::cout << "Usage: ./replace <filename> <string to replace> <string to replace with>" << std::endl;
+    return 0;
 }
