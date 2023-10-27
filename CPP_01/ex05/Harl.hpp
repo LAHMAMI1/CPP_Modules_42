@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 02:16:11 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/24 03:48:04 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/10/25 00:59:59 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Harl
         void error( void );
     public:
         void complain( std::string level );
+        void (Harl::*ptrFun[4])( void );
 };
 
 #endif

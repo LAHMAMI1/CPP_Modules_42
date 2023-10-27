@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:50:20 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/24 02:12:57 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:42:14 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int main(int argc, char const *argv[])
             std::cout << "Error: " << argv[1] << " file not opned" << std::endl;
     }
     else
-        std::cout << "Usage: ./replace <filename> <string to replace> <string to replace with>" << std::endl;
+        std::cout << "Error:\nUsage: ./replace <filename> <string to replace> <string to replace with>" << std::endl;
     return 0;
 }

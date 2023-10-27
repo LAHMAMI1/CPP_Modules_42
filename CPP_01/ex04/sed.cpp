@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 02:03:23 by olahmami          #+#    #+#             */
-/*   Updated: 2023/10/24 02:13:39 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/10/25 01:49:32 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void sed( char const *argv[], std::ifstream &file)
     std::string text_tmp;
 
     std::getline(file, textFile, '\0');
-    if (s1.empty() || s2.empty() || textFile.empty())
+    if (s1.empty() || textFile.empty())
     {
-        std::cout << "Error: empty string" << std::endl;
-            exit(1);
+        std::cout << "Error: is empty" << std::endl;
+        exit(1);
     }
     size_t pos = textFile.find(s1);
     while (pos != std::string::npos)
