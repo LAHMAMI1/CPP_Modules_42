@@ -6,14 +6,14 @@
 #    By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 01:17:37 by olahmami          #+#    #+#              #
-#    Updated: 2023/10/24 22:50:33 by olahmami         ###   ########.fr        #
+#    Updated: 2023/10/29 00:42:25 by olahmami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
-NAME = harl
-SRCS = main.cpp Harl.cpp
+NAME = fixed
+SRCS = main.cpp Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
