@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:23 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/01 01:37:24 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/01 04:24:24 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,29 @@ class Fixed
         Fixed(const int integer);
         Fixed(const float floating);
         Fixed(const Fixed &fixed);
+        ~Fixed();
+
         Fixed& operator=(const Fixed &fixed);
+
         float toFloat( void ) const;
         int toInt( void ) const;
-        ~Fixed();
+
+        bool Fixed::operator==(const Fixed &b) const;
+        bool Fixed::operator!=(const Fixed &b) const;
+        bool Fixed::operator>=(const Fixed &b) const;
+        bool Fixed::operator<=(const Fixed &b) const;
+        bool Fixed::operator>(const Fixed &b) const;
+        bool Fixed::operator<(const Fixed &b) const;
+        
+        Fixed Fixed::operator+(const Fixed &b) const;
+        Fixed Fixed::operator-(const Fixed &b) const;
+        Fixed Fixed::operator*(const Fixed &b) const;
+        Fixed Fixed::operator/(const Fixed &b) const;
+
+        Fixed& Fixed::operator++();
+        Fixed& Fixed::operator--();
+        Fixed Fixed::operator++(int);
+        Fixed Fixed::operator--(int);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
