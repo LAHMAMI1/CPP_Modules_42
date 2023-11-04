@@ -6,11 +6,13 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:21 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/01 04:47:18 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/04 01:35:45 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_fractionalBits = 8;
 
 Fixed::Fixed()
 {
@@ -32,20 +34,12 @@ Fixed& Fixed::operator=(const Fixed &fixed)
     return (*this);
 }
 
-Fixed::~Fixed()
-{
-    std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
 
 Fixed::Fixed(const int integer)
 {
     std::cout << "Int constructor called" << std::endl;
     _fixedPoint = integer << _fractionalBits;
-}
-
-int Fixed::toInt( void ) const
-{
-    return (_fixedPoint >> _fractionalBits);
 }
 
 Fixed::Fixed(const float floating)
@@ -54,12 +48,8 @@ Fixed::Fixed(const float floating)
     _fixedPoint = (int)(roundf(floating * (1 << _fractionalBits)));
 }
 
-float Fixed::toFloat( void ) const
-{
-    return ((float)_fixedPoint / (float)(1 << _fractionalBits));
-}
+int Fixed::toInt( void ) const { return (_fixedPoint >> _fractionalBits); }
 
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
-{
-    return (os << fixed.toFloat());
-}
+float Fixed::toFloat( void ) const { return ((float)_fixedPoint / (float)(1 << _fractionalBits)); }
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) { return (os << fixed.toFloat()); }

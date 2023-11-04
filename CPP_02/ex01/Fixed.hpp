@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:23 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/01 01:37:24 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/04 02:13:47 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@ class Fixed
 {
     private:
         int _fixedPoint;
-        const static int _fractionalBits = 8;
+        const static int _fractionalBits;
     public:
+        //Orthodox Canonical Form
         Fixed();
-        Fixed(const int integer);
-        Fixed(const float floating);
         Fixed(const Fixed &fixed);
         Fixed& operator=(const Fixed &fixed);
+        ~Fixed();
+
+        Fixed(const int integer);
+        Fixed(const float floating);
         float toFloat( void ) const;
         int toInt( void ) const;
-        ~Fixed();
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);

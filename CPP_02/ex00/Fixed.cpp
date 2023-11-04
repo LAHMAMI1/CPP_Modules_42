@@ -6,11 +6,13 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:21 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/01 01:35:04 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/04 01:02:46 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_fractionalBits = 8;
 
 Fixed::Fixed()
 {
@@ -43,7 +45,4 @@ void Fixed::setRawBits( int const raw )
     this->_fixedPoint = raw;
 }
 
-Fixed::~Fixed()
-{
-    std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }

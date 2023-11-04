@@ -6,97 +6,49 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:21 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/02 04:51:20 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/04 01:38:48 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed()
-{
-	// std::cout << "Default constructor called" << std::endl;
-	this->_fixedPoint = 0;
-}
+const int Fixed::_fractionalBits = 8;
 
-Fixed::Fixed(const Fixed &fixed)
-{
-	// std::cout << "Copy constructor called" << std::endl;
-	*this = fixed;
-}
+Fixed::Fixed() { this->_fixedPoint = 0; }
+
+Fixed::Fixed(const Fixed &fixed) { *this = fixed; }
 
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
-	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &fixed)
 		this->_fixedPoint = fixed._fixedPoint;
 	return (*this);
 }
 
-Fixed::~Fixed()
-{
-	// std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
-Fixed::Fixed(const int integer)
-{
-	// std::cout << "Int constructor called" << std::endl;
-	_fixedPoint = integer << _fractionalBits;
-}
+Fixed::Fixed(const int integer) { _fixedPoint = integer << _fractionalBits; }
 
-int Fixed::toInt(void) const
-{
-    // std::cout << "toInt" << std::endl;
-	return (_fixedPoint >> _fractionalBits);
-}
+int Fixed::toInt(void) const { return (_fixedPoint >> _fractionalBits); }
 
-Fixed::Fixed(const float floating)
-{
-	// std::cout << "Float constructor called" << std::endl;
-	_fixedPoint = (int)(roundf(floating * (1 << _fractionalBits)));
-}
+Fixed::Fixed(const float floating) { _fixedPoint = (int)(roundf(floating * (1 << _fractionalBits))); }
 
-float Fixed::toFloat(void) const
-{
-    // std::cout << "toFloat" << std::endl;
-	return ((float)_fixedPoint / (float)(1 << _fractionalBits));
-}
+float Fixed::toFloat(void) const { return ((float)_fixedPoint / (float)(1 << _fractionalBits)); }
 
-std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
-{
-    // std::cout << "operator<<" << std::endl;
-	return (os << fixed.toFloat());
-}
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed) { return (os << fixed.toFloat()); }
 
 //comparison operators:
-bool Fixed::operator==(const Fixed &b) const
-{
-	return (this->_fixedPoint == b._fixedPoint);
-}
+bool Fixed::operator==(const Fixed &b) const { return (this->_fixedPoint == b._fixedPoint); }
 
-bool Fixed::operator!=(const Fixed &b) const
-{
-	return (this->_fixedPoint != b._fixedPoint);
-}
+bool Fixed::operator!=(const Fixed &b) const { return (this->_fixedPoint != b._fixedPoint); }
 
-bool Fixed::operator>=(const Fixed &b) const
-{
-	return (this->_fixedPoint >= b._fixedPoint);
-}
+bool Fixed::operator>=(const Fixed &b) const { return (this->_fixedPoint >= b._fixedPoint); }
 
-bool Fixed::operator<=(const Fixed &b) const
-{
-	return (this->_fixedPoint <= b._fixedPoint);
-}
+bool Fixed::operator<=(const Fixed &b) const { return (this->_fixedPoint <= b._fixedPoint); }
 
-bool Fixed::operator>(const Fixed &b) const
-{
-	return (this->_fixedPoint > b._fixedPoint);
-}
+bool Fixed::operator>(const Fixed &b) const { return (this->_fixedPoint > b._fixedPoint); }
 
-bool Fixed::operator<(const Fixed &b) const
-{
-	return (this->_fixedPoint < b._fixedPoint);
-}
+bool Fixed::operator<(const Fixed &b) const { return (this->_fixedPoint < b._fixedPoint); }
 
 // Arithmetic operators
 Fixed Fixed::operator+(const Fixed &b) const
@@ -127,6 +79,7 @@ Fixed Fixed::operator/(const Fixed &b) const
     return (result);
 }
 
+//increment/decrement operators
 Fixed& Fixed::operator++()
 {
     ++this->_fixedPoint;
@@ -148,7 +101,7 @@ Fixed Fixed::operator++(int)
 
 Fixed Fixed::operator--(int)
 {
-     Fixed result;
+    Fixed result;
     result._fixedPoint = this->_fixedPoint--;
     return (result);
 }
