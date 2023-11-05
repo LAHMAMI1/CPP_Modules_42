@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 01:47:12 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/05 01:28:26 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/04 04:21:10 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (this->_hitPoints <= 0)
+    if (this->_energyPoints <= 0 || this->_hitPoints <= 0)
     {
-        std::cout << "ClapTrap " << this->_name << " is dead" << std::endl;
+        std::cout << "ClapTrap " << this->_name << " is dead or has no energy points" << std::endl;
         return ;
     }
     std::cout << "Hit points before take damage: " << this->_hitPoints << std::endl;
