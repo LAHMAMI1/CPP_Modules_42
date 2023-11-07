@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 22:55:40 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/06 00:09:49 by olahmami         ###   ########.fr       */
+/*   Created: 2023/11/07 07:50:17 by olahmami          #+#    #+#             */
+/*   Updated: 2023/11/07 07:52:46 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCRAVTRAP_HPP
-#define SCRAVTRAP_HPP
+#pragma once
 
-#include "ClapTrap.hpp"
+#include "WrongAnimal.hpp"
 
-class ScavTrap : public ClapTrap
+class WrongCat : public WrongAnimal
 {
     public:
         //Orthodox Canonical Form
-        ScavTrap();
-        ScavTrap(const ScavTrap& claptrap);
-        ScavTrap &operator=(const ScavTrap& claptrap);
-        ~ScavTrap();
+        WrongCat();
+        WrongCat(const WrongCat& WrongCat);
+        WrongCat &operator=(const WrongCat& WrongCat);
+        ~WrongCat();
 
-        ScavTrap(std::string name);
-        void attack(const std::string& target);
-        void guardGate();
+        void makeSound() const;
 };
-
-#endif

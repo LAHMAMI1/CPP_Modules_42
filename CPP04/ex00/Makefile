@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/19 01:17:37 by olahmami          #+#    #+#              #
-#    Updated: 2023/11/05 18:43:08 by olahmami         ###   ########.fr        #
+#    Created: 2023/11/06 20:24:30 by olahmami          #+#    #+#              #
+#    Updated: 2023/11/07 07:58:10 by olahmami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
-NAME = fragtrap
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+NAME = polymorphisme
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
