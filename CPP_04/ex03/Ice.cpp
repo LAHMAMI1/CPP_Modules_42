@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:17:14 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/10 10:18:12 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:15:17 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ AMateria* Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-    
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

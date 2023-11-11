@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 07:30:26 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/11 07:55:44 by olahmami         ###   ########.fr       */
+/*   Created: 2023/11/11 04:25:12 by olahmami          #+#    #+#             */
+/*   Updated: 2023/11/11 05:54:37 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class AMateria;
-
-class ICharacter
+class MateriaSource : public IMateriaSource
 {
+    private:
+        AMateria *_inventory[4];
     public:
-    virtual ~ICharacter() {}
-    virtual std::string const & getName() const = 0;
-    virtual void equip(AMateria* m) = 0;
-    virtual void unequip(int idx) = 0;
-    virtual void use(int idx, ICharacter& target) = 0;
+        //Orthodox Canonical Form
+        MateriaSource();
+        MateriaSource(const MateriaSource& MateriaSource);
+        MateriaSource &operator=(const MateriaSource& MateriaSource);
+        ~MateriaSource();
+
+        void learnMateria(AMateria*);
+        AMateria* createMateria(std::string const & type);
 };

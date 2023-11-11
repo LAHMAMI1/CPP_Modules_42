@@ -6,14 +6,14 @@
 #    By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 20:24:30 by olahmami          #+#    #+#              #
-#    Updated: 2023/11/09 09:53:59 by olahmami         ###   ########.fr        #
+#    Updated: 2023/11/11 10:20:25 by olahmami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CPPFLAGS = -std=c++98 -Wall -Werror -Wextra -fsanitize=address
-NAME = Animal
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+NAME = Materia
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

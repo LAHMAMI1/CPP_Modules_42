@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:08:56 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/10 10:14:15 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/11 03:20:22 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ AMateria* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-    
+    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }

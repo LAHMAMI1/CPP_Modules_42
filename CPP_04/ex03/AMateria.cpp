@@ -6,16 +6,13 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:41:05 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/10 09:49:01 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:14:09 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria()
-{
-    this->_type = "default";
-}
+AMateria::AMateria() {}
 
 AMateria::AMateria(const AMateria& AMateria)
 {
@@ -42,5 +39,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-    
+    std::cout << "* AMateria " << target.getName() << "’s default *" << std::endl;
 }
