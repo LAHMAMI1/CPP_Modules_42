@@ -6,21 +6,18 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:08:56 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/11 03:20:22 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/12 07:34:58 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria()
+Cure::Cure()
 {
     this->_type = "cure";
 }
 
-Cure::Cure(const Cure& Cure) : AMateria(Cure)
-{
-    this->_type = Cure._type;
-}
+Cure::Cure(const Cure& Cure) : AMateria(Cure) {}
 
 Cure &Cure::operator=(const Cure& Cure)
 {
@@ -30,10 +27,7 @@ Cure &Cure::operator=(const Cure& Cure)
 
 Cure::~Cure() {}
 
-Cure::Cure(std::string const & type)
-{
-    this->_type = type;
-}
+Cure::Cure(std::string const & type) : AMateria(type) {}
 
 std::string const &Cure::getType() const
 {

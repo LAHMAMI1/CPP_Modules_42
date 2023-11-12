@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:12:58 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/11 04:07:05 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/12 07:54:53 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Character : public ICharacter
     private:
         std::string _name;
         AMateria *_inventory[4];
+        AMateria *_saveInventory[4];
     public:
         //Orthodox Canonical Form
         Character();

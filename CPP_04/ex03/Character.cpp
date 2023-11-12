@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:30:04 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/11 10:39:10 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/12 11:39:03 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ Character::Character()
 {
     this->_name = "default";
     for (int i = 0; i < 4; i++)
+    {
         this->_inventory[i] = NULL;
+        this->_saveInventory[i] = NULL;
+    }
 }
 
 Character::Character(const Character& Character)
@@ -24,12 +27,11 @@ Character::Character(const Character& Character)
     this->_name = Character._name;
     for (int i = 0; i < 4; i++)
     {
-        if (this->_inventory[i])
-            delete this->_inventory[i];
         if (Character._inventory[i])
             this->_inventory[i] = Character._inventory[i]->clone();
         else
             this->_inventory[i] = NULL;
+        this->_saveInventory[i] = this->_inventory[i];
     }
 }
 
@@ -46,6 +48,7 @@ Character &Character::operator=(const Character& Character)
                 this->_inventory[i] = Character._inventory[i]->clone();
             else
                 this->_inventory[i] = NULL;
+            this->_saveInventory[i] = this->_inventory[i];
         }
     }
     return (*this);
@@ -57,6 +60,8 @@ Character::~Character()
     {
         if (this->_inventory[i])
             delete this->_inventory[i];
+        else if (this->_inventory[i] == NULL && this->_saveInventory[i])
+            delete this->_saveInventory[i];
     }
 }
 
@@ -64,7 +69,10 @@ Character::Character(std::string const & name)
 {
     this->_name = name;
     for (int i = 0; i < 4; i++)
+    {
         this->_inventory[i] = NULL;
+        this->_saveInventory[i] = NULL;
+    }
 }
 
 std::string const & Character::getName() const
@@ -74,14 +82,20 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+    if (!m)
+        return ;
     for (int i = 0; i < 4; i++)
     {
         if (this->_inventory[i] == NULL)
         {
-            this->_inventory[i] = m;
+            this->_inventory[i] = m->clone();
+            if (this->_saveInventory[i])
+                delete this->_saveInventory[i];
+            this->_saveInventory[i] = this->_inventory[i];
             return ;
         }
     }
+    delete m;
 }
 
 void Character::unequip(int idx)

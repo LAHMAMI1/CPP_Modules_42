@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 04:25:12 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/11 05:54:37 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/12 11:05:39 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ class MateriaSource : public IMateriaSource
 {
     private:
         AMateria *_inventory[4];
+        AMateria *_saveInventory[4];
+        
     public:
         //Orthodox Canonical Form
         MateriaSource();

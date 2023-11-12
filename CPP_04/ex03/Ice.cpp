@@ -6,21 +6,18 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:17:14 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/11 10:15:17 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/12 07:35:45 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria()
+Ice::Ice()
 {
     this->_type = "ice";
 }
 
-Ice::Ice(const Ice& Ice) : AMateria(Ice)
-{
-    this->_type = Ice._type;
-}
+Ice::Ice(const Ice& Ice) : AMateria(Ice) {}
 
 Ice &Ice::operator=(const Ice& Ice)
 {
@@ -30,10 +27,7 @@ Ice &Ice::operator=(const Ice& Ice)
 
 Ice::~Ice() {}
 
-Ice::Ice(std::string const & type)
-{
-    this->_type = type;
-}
+Ice::Ice(std::string const & type) : AMateria(type) {}
 
 std::string const &Ice::getType() const
 {
