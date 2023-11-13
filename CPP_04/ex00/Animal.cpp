@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 01:13:07 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/07 07:55:07 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/13 08:12:44 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,8 @@ Animal &Animal::operator=(const Animal& Animal)
     return (*this);
 }
 
-Animal::~Animal()
-{
-    std::cout << "Destructor called (Animal)" << std::endl;
-}
+Animal::~Animal() { std::cout << "Destructor called (Animal)" << std::endl; }
 
-std::string Animal::getType() const
-{
-    return (this->type);
-}
+std::string Animal::getType() const { return (this->type); }
 
-void Animal::makeSound() const
-{
-    std::cout << "There is no sound! (Animal)" << std::endl;
-}
+void Animal::makeSound() const { std::cout << "There is no sound! (Animal)" << std::endl; }

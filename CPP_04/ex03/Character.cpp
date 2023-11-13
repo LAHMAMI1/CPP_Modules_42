@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:30:04 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/12 11:39:03 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/13 08:30:27 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,7 @@ Character::Character(std::string const & name)
     }
 }
 
-std::string const & Character::getName() const
-{
-    return (this->_name);
-}
+std::string const & Character::getName() const { return (this->_name); }
 
 void Character::equip(AMateria* m)
 {

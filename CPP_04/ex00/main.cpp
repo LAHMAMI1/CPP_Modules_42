@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:24:19 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/09 08:42:03 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/13 08:11:56 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ int main()
     delete i;
 
     //WrongAnimal
-    const WrongAnimal* meta1 = new WrongAnimal();
-    const WrongAnimal* i1 = new WrongCat();
+    // const WrongAnimal* meta1 = new WrongAnimal();
+    // const WrongAnimal* i1 = new WrongCat();
 
-    std::cout << i1->getType() << " " << std::endl;
-    i1->makeSound(); //will output the WrongAnimal sound!
-    meta1->makeSound();
+    // std::cout << i1->getType() << " " << std::endl;
+    // i1->makeSound(); //will output the WrongAnimal sound!
+    // meta1->makeSound();
 
-    delete meta1;
-    delete i1;
+    // delete meta1;
+    // delete i1;
 
     return 0;
 }

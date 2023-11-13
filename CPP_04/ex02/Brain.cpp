@@ -6,16 +6,13 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 01:39:11 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/09 09:58:57 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/13 08:24:48 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
-Brain::Brain()
-{
-	std::cout << "Default Constructor called (Brain)" << std::endl;
-}
+Brain::Brain() { std::cout << "Default Constructor called (Brain)" << std::endl; }
 
 Brain::Brain(const Brain &brain)
 {
@@ -35,7 +32,4 @@ Brain &Brain::operator=(const Brain &brain)
 	return (*this);
 }
 
-Brain::~Brain()
-{
-	std::cout << "Destructor called (Brain)" << std::endl;
-}
+Brain::~Brain() { std::cout << "Destructor called (Brain)" << std::endl; }

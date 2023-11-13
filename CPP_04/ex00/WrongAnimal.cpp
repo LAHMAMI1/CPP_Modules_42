@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 07:50:09 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/07 07:54:30 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/13 08:16:37 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,8 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal& WrongAnimal)
     return (*this);
 }
 
-WrongAnimal::~WrongAnimal()
-{
-    std::cout << "Destructor called (WrongAnimal)" << std::endl;
-}
+WrongAnimal::~WrongAnimal() { std::cout << "Destructor called (WrongAnimal)" << std::endl; }
 
-std::string WrongAnimal::getType() const
-{
-    return (this->type);
-}
+std::string WrongAnimal::getType() const { return (this->type); }
 
-void WrongAnimal::makeSound() const
-{
-    std::cout << "There is no sound! (WrongAnimal)" << std::endl;
-}
+void WrongAnimal::makeSound() const { std::cout << "There is no sound! (WrongAnimal)" << std::endl; }

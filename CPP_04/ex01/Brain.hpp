@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 01:45:39 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/09 04:15:23 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/13 08:19:12 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ class Brain
         Brain(const Brain& Brain);
         Brain &operator=(const Brain& Brain);
         ~Brain();
-        
 };

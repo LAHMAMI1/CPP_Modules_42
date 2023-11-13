@@ -6,13 +6,13 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 01:13:45 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/09 08:41:43 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/13 08:15:50 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal()
+Dog::Dog()
 {
     this->type = "Dog";
     std::cout << "Default Constructor called (Dog)" << std::endl;
@@ -20,7 +20,6 @@ Dog::Dog() : Animal()
 
 Dog::Dog(const Dog& Dog) : Animal(Dog)
 {
-    this->type = Dog.type;
     std::cout << "Copy Constructor called (Dog)" << std::endl;
 }
 
@@ -31,12 +30,6 @@ Dog &Dog::operator=(const Dog& Dog)
     return (*this);
 }
 
-Dog::~Dog()
-{
-    std::cout << "Destructor called (Dog)" << std::endl;
-}
+Dog::~Dog() { std::cout << "Destructor called (Dog)" << std::endl; }
 
-void Dog::makeSound() const
-{
-    std::cout << "WOOF WOOF!" << std::endl;
-}
+void Dog::makeSound() const { std::cout << "WOOF WOOF!" << std::endl; }

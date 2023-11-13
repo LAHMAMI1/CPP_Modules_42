@@ -6,16 +6,13 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:17:14 by olahmami          #+#    #+#             */
-/*   Updated: 2023/11/12 07:35:45 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/11/13 08:37:23 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice()
-{
-    this->_type = "ice";
-}
+Ice::Ice() { this->_type = "ice"; }
 
 Ice::Ice(const Ice& Ice) : AMateria(Ice) {}
 
@@ -29,15 +26,7 @@ Ice::~Ice() {}
 
 Ice::Ice(std::string const & type) : AMateria(type) {}
 
-std::string const &Ice::getType() const
-{
-    return (this->_type);
-}
-
-AMateria* Ice::clone() const
-{
-    return (new Ice());
-}
+AMateria* Ice::clone() const { return (new Ice()); }
 
 void Ice::use(ICharacter& target)
 {
