@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 14:09:14 by olahmami          #+#    #+#             */
-/*   Updated: 2023/12/03 17:50:46 by olahmami         ###   ########.fr       */
+/*   Created: 2023/12/03 16:13:57 by olahmami          #+#    #+#             */
+/*   Updated: 2023/12/03 17:56:42 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Bureaucrat;
+
+class Form
 {
     private:
         std::string const _name;
-        int _grade;
+        bool _signed;
+        int const _gradeToSign;
+        int const _gradeToExecute;
     public:
         //Orthodox Canonical Form
-        Bureaucrat();
-        Bureaucrat(const Bureaucrat& Bureaucrat);
-        Bureaucrat &operator=(const Bureaucrat& Bureaucrat);
-        ~Bureaucrat();
+        Form();
+        Form(const Form& Form);
+        Form &operator=(const Form& Form);
+        ~Form();
 
         //Getters
         std::string const &getName() const;
-        int const &getGrade() const;
+        bool const &getSigned() const;
+        int const &getGradeToSign() const;
+        int const &getGradeToExecute() const;
 
         //Exception
         class GradeTooHighException : public std::exception
@@ -48,10 +54,8 @@ class Bureaucrat
                 }
         };
 
-        void incrementGrade();
-        void decrementGrade();
-        
-        Bureaucrat(std::string const &name, int grade);
+        void beSigned(Bureaucrat &bureaucrat);
+        Form(std::string name, int gradeToSign, int gradeToExecute);
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+std::ostream& operator<<(std::ostream& os, const Form& form);

@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:09:17 by olahmami          #+#    #+#             */
-/*   Updated: 2023/12/03 17:50:52 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:57:40 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,17 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name)
         throw GradeTooHighException();
     if (this->_grade > 150)
         throw GradeTooLowException();
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->_name << " signed " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+    }   
 }

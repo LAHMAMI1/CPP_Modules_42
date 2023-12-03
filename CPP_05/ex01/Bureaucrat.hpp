@@ -6,13 +6,16 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:09:14 by olahmami          #+#    #+#             */
-/*   Updated: 2023/12/03 17:50:46 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:57:29 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -50,7 +53,8 @@ class Bureaucrat
 
         void incrementGrade();
         void decrementGrade();
-        
+        void signForm(Form &form);
+
         Bureaucrat(std::string const &name, int grade);
 };
 
