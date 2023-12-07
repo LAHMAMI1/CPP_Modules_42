@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:49:58 by olahmami          #+#    #+#             */
-/*   Updated: 2023/12/07 14:09:00 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:15:39 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void ScalarConverter::convert(const std::string& literal)
         std::cerr << "Non displayable argument" << std::endl;
         return ;
     }
-    
+
     if (literal == "nanf" || literal == "nan")
     {
         std::cout << "char: impossible" << std::endl;
@@ -60,7 +60,7 @@ void ScalarConverter::convert(const std::string& literal)
         std::cout << "float: " << std::numeric_limits<float>::max() << std::endl;
         std::cout << "double: " << std::numeric_limits<double>::max() << std::endl;
     }
-    else if (literal == "-inff" || literal == "-inff")
+    else if (literal == "-inff" || literal == "-inf")
     {
         std::cout << "char: Non displayable" << std::endl;
         std::cout << "int: " << std::numeric_limits<int>::min() << std::endl;
@@ -88,7 +88,7 @@ void ScalarConverter::convert(const std::string& literal)
 
         size_t position = literal.find('.');
         int precision = (position != std::string::npos) ? literal.length() - position - 2 : 1;
-        
+
         std::cout << "int: " << i << std::endl;
         std::cout << "float:" << std::fixed << std::setprecision(precision) << f << "f" << std::endl;
         std::cout << "double:" << std::fixed << std::setprecision(precision) << d << std::endl;
