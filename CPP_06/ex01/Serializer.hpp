@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 14:13:59 by olahmami          #+#    #+#             */
-/*   Updated: 2023/12/12 21:34:53 by olahmami         ###   ########.fr       */
+/*   Created: 2023/12/12 20:01:52 by olahmami          #+#    #+#             */
+/*   Updated: 2023/12/12 21:29:33 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include <cctype>
-#include <sstream>
-#include <iomanip>
-#include <limits>
+#include <stdint.h>
 
-class ScalarConverter
+struct Data
+{
+    int a;
+    int b;
+};
+
+class Serializer
 {
     private:
-        ScalarConverter();
+        Serializer();
 
     public:
         //Orthodox Canonical Form
-        ScalarConverter(const ScalarConverter &sc);
-        ScalarConverter &operator=(const ScalarConverter &sc);
-        ~ScalarConverter();
+        Serializer(const Serializer &sc);
+        Serializer &operator=(const Serializer &sc);
+        ~Serializer();
         
         //Methods
-        static void convert(const std::string& literal);
+        static uintptr_t serialize(Data* ptr);
+        static Data* deserialize(uintptr_t raw);
 };
