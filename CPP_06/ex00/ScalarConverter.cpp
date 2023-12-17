@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:49:58 by olahmami          #+#    #+#             */
-/*   Updated: 2023/12/12 21:34:11 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/12/17 10:21:31 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ void ScalarConverter::convert(const std::string& literal)
         std::cout << std::endl;
 
         size_t position = literal.find('.');
-        int precision = (position != std::string::npos) ? literal.length() - position - 2 : 1;
+        size_t end = literal.at(literal.length() - 1) == 'f' ? literal.length() - 2 : literal.length() - 1;
+        int precision = (position != std::string::npos) ? end - position : 0;
 
         std::cout << "int: " << i << std::endl;
         std::cout << "float:" << std::fixed << std::setprecision(precision) << f << "f" << std::endl;
