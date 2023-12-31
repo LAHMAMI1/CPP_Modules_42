@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:28:18 by olahmami          #+#    #+#             */
-/*   Updated: 2023/12/28 20:11:36 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/12/31 15:49:34 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
 
 class Span
 {
@@ -33,4 +35,5 @@ class Span
         void addNumber(int num);
         unsigned int shortestSpan();
         unsigned int longestSpan();
+        void addRange(int first, int last);
 };

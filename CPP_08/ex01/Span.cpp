@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:27:49 by olahmami          #+#    #+#             */
-/*   Updated: 2023/12/29 18:40:43 by olahmami         ###   ########.fr       */
+/*   Updated: 2023/12/31 18:48:17 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,19 @@ unsigned int Span::longestSpan()
     unsigned int min = *std::min_element(this->_sp.begin(), this->_sp.end());
 
     return max - min;
+}
+
+void Span::addRange(int first, int last)
+{
+    if (this->_sp.size() == this->_N)
+        throw std::runtime_error("Vector is already filled");
+    else
+    {
+        srand(time(0));
+        for (size_t i = 0; i < this->_N; i++)
+        {
+            int random = rand() % (last - first + 1) + first;
+            this->_sp.push_back(random);
+        }
+    }
 }
