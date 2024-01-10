@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:58:20 by olahmami          #+#    #+#             */
-/*   Updated: 2024/01/09 17:50:44 by olahmami         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:24:53 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <fstream>
 #include <map>
 #include <ctime>
+#include <cstdlib>
+#include <sstream>
 
 class BitcoinExchange
 {

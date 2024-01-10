@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:58:27 by olahmami          #+#    #+#             */
-/*   Updated: 2024/01/09 18:11:56 by olahmami         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:52:50 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,22 @@ int BitcoinExchange::readData(char **av)
     {
         if (line.length() < 14 || line.substr(10, 3) != " | ")
             return (std::cerr << "Error: invalid input file format" << std::endl, 1);
+
         std::string date = line.substr(0, 10);
         struct tm tm;
         if (!strptime(date.c_str(), "%Y-%m-%d", &tm))
             return (std::cerr << "Error: invalid date format" << std::endl, 1);
-        
-        std::string value = line.substr(14);
-        
+        if (atoi(date.substr(8).c_str()) > 31 || atoi(date.substr(8).c_str()) < 1)
+            return (std::cerr << "Error: invalid date format" << std::endl, 1);
+
+        std::string value = line.substr(13);
+        std::istringstream iss(value);
+        float floatValue;
+        char leftover;
+        if (!(iss >> floatValue) || (iss >> leftover && leftover != 'f'))
+            return (std::cerr << "Error: invalid value" << std::endl, 1);
+        if (floatValue < 0 || floatValue > 1000)
+            return (std::cerr << "Error: value out of range" << std::endl, 1);
     }
     
     return (std::cout << "Success: input file is valid" << std::endl, 0);
