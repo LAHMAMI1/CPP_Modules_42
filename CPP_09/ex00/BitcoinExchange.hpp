@@ -6,9 +6,11 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:58:20 by olahmami          #+#    #+#             */
-/*   Updated: 2024/01/10 13:24:53 by olahmami         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:54:01 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 #include <fstream>
@@ -29,5 +31,8 @@ class BitcoinExchange
         // ~BitcoinExchange();
 
         // Member functions
-        int readData(char **av);
+        void readData(char **av);
+        // input file checkers
+        void dateChecker(std::string line);
+        void valueChecker(std::string line);
 };
