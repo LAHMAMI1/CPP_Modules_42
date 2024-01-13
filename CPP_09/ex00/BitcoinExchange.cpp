@@ -6,23 +6,48 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:58:27 by olahmami          #+#    #+#             */
-/*   Updated: 2024/01/12 18:30:15 by olahmami         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:37:48 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-// BitcoinExchange::BitcoinExchange() {}
+// Orthodox Canonical Form
+BitcoinExchange::BitcoinExchange() {}
 
-// BitcoinExchange::BitcoinExchange(const BitcoinExchange &bitcoinExchange) {}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &bitcoinExchange) { *this = bitcoinExchange; }
 
-// BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &bitcoinExchange) {}
-
-// BitcoinExchange::~BitcoinExchange() {}
-
-void BitcoinExchange::readData(char **av)
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &bitcoinExchange)
 {
-    // csv file
+    if (this != &bitcoinExchange)
+       this->_inputData = bitcoinExchange._inputData;
+    return (*this);
+}
+
+BitcoinExchange::~BitcoinExchange() {}
+
+// Member functions
+void BitcoinExchange::execution(char **av)
+{
+    csvFile();
+    inputFile(av);
+}
+
+void BitcoinExchange::printData(std::string line, float value)
+{
+    std::map<std::string, float>::iterator it = _inputData.lower_bound(line);
+    if (it->first == line)
+        std::cout << line << " => " << value << " = " << value * it->second << std::endl;
+    else if (it != _inputData.begin())
+    {
+        --it;
+        std::cout << line << " => " << value << " = " << value * it->second << std::endl;
+    }
+}
+
+// member file functions
+void BitcoinExchange::csvFile()
+{
     std::ifstream dataFile("data.csv");
     if (!dataFile.is_open())
         throw std::runtime_error("Error: Cannot open data.csv");
@@ -41,16 +66,20 @@ void BitcoinExchange::readData(char **av)
         _inputData[dataLine.substr(0, 10)] = atof(dataLine.substr(11).c_str());
     }
     dataFile.close();
+}
 
-    // input file
+void BitcoinExchange::inputFile(char **av)
+{
     std::string inputName = av[1];
     if (inputName.length() < 4 || inputName.substr(inputName.length() - 4) != ".txt")
         throw std::runtime_error("Error: input file must be a .txt file: " + inputName);
+
     std::ifstream inputFile(inputName.c_str());
     if (!inputFile.is_open())
         throw std::runtime_error("Error: Cannot open input file: " + inputName);
     if (inputFile.peek() == std::ifstream::traits_type::eof())
         throw std::runtime_error("Error: input file is empty: " + inputName);
+
     std::string inputLine;
     if (std::getline(inputFile, inputLine) && (inputLine != "date | value" || inputLine.empty()))
         throw std::runtime_error("Error: first line = date | value");
@@ -61,22 +90,13 @@ void BitcoinExchange::readData(char **av)
         {
             if (inputLine.length() < 14 || inputLine.substr(10, 3) != " | ")
                 throw std::runtime_error("Error: invalid input file format: " + inputLine);
+
             dateChecker(inputLine, inputName);
             valueChecker(inputLine.substr(13), true, inputName);
-            float value = atof(inputLine.substr(13).c_str());
-            std::map<std::string, float>::iterator it = _inputData.lower_bound(inputLine.substr(0, 10));
-            if (it->first == inputLine.substr(0,10))
-                std::cout << inputLine.substr(0, 10) << " => " << value << " = " << value * it->second << std::endl;
-            else if (it != _inputData.begin())
-            {
-                --it;
-                std::cout << inputLine.substr(0, 10) << " => " << value << " = " << value * it->second << std::endl;
-            }
+
+            printData(inputLine.substr(0, 10), atof(inputLine.substr(13).c_str()));
         }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << '\n';
-        }
+        catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
     }
     inputFile.close();
 }
