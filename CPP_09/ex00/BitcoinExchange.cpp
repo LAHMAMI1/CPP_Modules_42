@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:58:27 by olahmami          #+#    #+#             */
-/*   Updated: 2024/01/13 13:37:48 by olahmami         ###   ########.fr       */
+/*   Updated: 2024/01/13 16:37:35 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Orthodox Canonical Form
 BitcoinExchange::BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &bitcoinExchange) { *this = bitcoinExchange; }
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &bitcoinExchange) { this->_inputData = bitcoinExchange._inputData; }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &bitcoinExchange)
 {
