@@ -6,7 +6,7 @@
 /*   By: olahmami <olahmami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:38:44 by olahmami          #+#    #+#             */
-/*   Updated: 2024/01/31 17:47:30 by olahmami         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:48:02 by olahmami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <deque>
 #include <cctype>
 #include <cstdlib>
+#include <algorithm>
 
 class PmergeMe
 {
